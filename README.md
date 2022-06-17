@@ -1,2 +1,3 @@
-# TemplateRepository
-This repository contains template for a project in C language
+# PhyMacAlgorithms
+
+PhyMacAlgorithms is a algorithms library mainly for mesh algorithms and numerical algorithms
