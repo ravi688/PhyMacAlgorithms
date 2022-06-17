@@ -1,5 +1,5 @@
 
-#include <template_repo/debug.h>
+#include <phymac_algorithms/debug.h>
 
 #include <stdarg.h>
 #include <stdio.h>

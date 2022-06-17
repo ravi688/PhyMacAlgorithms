@@ -11,9 +11,9 @@
 #-------------------------------------------
 #		Project Configuration
 #-------------------------------------------
-PROJECT_NAME = TemplateRepo
-STATIC_LIB_NAME = templaterepo.a
-DYNAMIC_LIB_NAME = templaterepo.dll
+PROJECT_NAME = PhyMacAlgorithms
+STATIC_LIB_NAME = phymacalgorithms.a
+DYNAMIC_LIB_NAME = phymacalgorithms.dll
 EXECUTABLE_NAME = main.exe
 EXTERNAL_INCLUDES = 
 EXTERNAL_LIBS = 
