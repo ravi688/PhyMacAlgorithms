@@ -51,14 +51,14 @@ typedef int64_t s64;
 #define HOT HOT_FUNCTION
 #define COLD COLD_FUNCTION
 
-#ifdef TEMPLATE_REPO_STATIC_LIBRARY
-#	define TEMPLATE_REPO_API
-#elif TEMPLATE_REPO_DYNAMIC_LIBRARY
-#	define TEMPLATE_REPO_API __declspec(dllimport)
+#ifdef PHYMAC_ALGORITHS_STATIC_LIBRARY
+#	define PHYMAC_ALGORITHS_API
+#elif PHYMAC_ALGORITHS_DYNAMIC_LIBRARY
+#	define PHYMAC_ALGORITHS_API __declspec(dllimport)
 #elif BUILD_DYNAMIC_LIBRARY
-#	define TEMPLATE_REPO_API __declspec(dllexport)
+#	define PHYMAC_ALGORITHS_API __declspec(dllexport)
 #else
-#	define TEMPLATE_REPO_API
+#	define PHYMAC_ALGORITHS_API
 #endif
 
 #ifdef __cplusplus
