@@ -15,6 +15,9 @@ typedef int16_t s16;
 typedef int32_t s32;
 typedef int64_t s64;
 
+typedef float f32;
+typedef double f64;
+
 #define U8_MAX UINT8_MAX
 #define U16_MAX UINT16_MAX
 #define U32_MAX UINT32_MAX
@@ -51,15 +54,17 @@ typedef int64_t s64;
 #define HOT HOT_FUNCTION
 #define COLD COLD_FUNCTION
 
-#ifdef PHYMAC_ALGORITHS_STATIC_LIBRARY
+#if defined(PHYMAC_ALGORITHS_STATIC_LIBRARY) || defined(PALG_STATIC_LIBRARY)
 #	define PHYMAC_ALGORITHS_API
-#elif PHYMAC_ALGORITHS_DYNAMIC_LIBRARY
+#elif defined(PHYMAC_ALGORITHS_DYNAMIC_LIBRARY) || defined(PAGL_DYNAMIC_LIBRARY)
 #	define PHYMAC_ALGORITHS_API __declspec(dllimport)
 #elif BUILD_DYNAMIC_LIBRARY
 #	define PHYMAC_ALGORITHS_API __declspec(dllexport)
 #else
 #	define PHYMAC_ALGORITHS_API
 #endif
+
+#define PALG_API PHYMAC_ALGORITHS_API
 
 #ifdef __cplusplus
 #	define BEGIN_CPP_COMPATIBLE extern "C" {
@@ -73,6 +78,9 @@ typedef int64_t s64;
 #define DREF(ptr) (*(ptr))
 #define CAST_TO(to, s) ((to)(s))
 #define REINTERPRET_TO(to, s) (*(to*)(&s))
+
+#define BIT64(index) (CAST_TO(u64, 1) << index)
+#define BIT32(index) (CAST_TO(u32, 1) << index)
 
 #define OUT * const
 #define IN const *

@@ -24,10 +24,10 @@ BEGIN_CPP_COMPATIBLE
 
 #include <stdarg.h>
 
-TEMPLATE_REPO_API void debug_assert_wrn(u32 line, const char* function, const char* file, u64 assertion, ...);
-TEMPLATE_REPO_API void debug_assert(u32 line, const char* function, const char* file, u64 assertion, ...);
-TEMPLATE_REPO_API void debug_logv(const char* description, u32 line, const char* function, const char* file, const char* format, va_list args);
-TEMPLATE_REPO_API void debug_log(const char* description, u32 line, const char* function, const char* file, const char* format, ...);
-TEMPLATE_REPO_API void debug_log_exit(const char* description, u32 line, const char* function, const char* file, const char* format, ...);
+PALG_API void debug_assert_wrn(u32 line, const char* function, const char* file, u64 assertion, ...);
+PALG_API void debug_assert(u32 line, const char* function, const char* file, u64 assertion, ...);
+PALG_API void debug_logv(const char* description, u32 line, const char* function, const char* file, const char* format, va_list args);
+PALG_API void debug_log(const char* description, u32 line, const char* function, const char* file, const char* format, ...);
+PALG_API void debug_log_exit(const char* description, u32 line, const char* function, const char* file, const char* format, ...);
 
 END_CPP_COMPATIBLE
