@@ -20,6 +20,8 @@
 #	define debug_log_fetal_error(...)
 #endif
 
+#define print debug_log_info
+
 BEGIN_CPP_COMPATIBLE
 
 #include <stdarg.h>

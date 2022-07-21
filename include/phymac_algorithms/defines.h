@@ -54,6 +54,12 @@ typedef double f64;
 #define HOT HOT_FUNCTION
 #define COLD COLD_FUNCTION
 
+#ifdef __cplusplus
+#	define RESTRICT __restrict__
+#else
+#	define RESTRICT restrict
+#endif
+
 #if defined(PHYMAC_ALGORITHS_STATIC_LIBRARY) || defined(PALG_STATIC_LIBRARY)
 #	define PHYMAC_ALGORITHS_API
 #elif defined(PHYMAC_ALGORITHS_DYNAMIC_LIBRARY) || defined(PAGL_DYNAMIC_LIBRARY)
