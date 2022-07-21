@@ -18,8 +18,13 @@ int main(int argc, char** argv)
 	print("Buble Sort: ");
 	s32 copy[10]; 
 	memcpy(copy, array, sizeof(s32) * 10);
-	palg_bubble_sort_s32(array, array + 10);
+	palg_bubble_sort_s32(copy, copy + 10);
 	palg_print_array_s32(copy, copy + 10);
-	
+
+	print("Selection Sort: ");
+	memcpy(copy, array, sizeof(s32) * 10);
+	palg_selection_sort_s32(copy, copy + 10);
+	palg_print_array_s32(copy, copy + 10);
+
 	return 0;
 }

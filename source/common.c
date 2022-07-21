@@ -96,3 +96,61 @@ palg_swap_def(s32);
 palg_swap_def(s64);
 palg_swap_def(f32);
 palg_swap_def(f64);
+
+#define palg_find_max_def(type,  MIN) \
+palg_find_max_proto(type) \
+{ \
+	u32 n = CAST_TO(u32, end - start);\
+	type maxValue = MIN;\
+	u32 maxIndex = 0;\
+	for(u32 i = 0; i < n; i++)\
+		if(maxValue < start[i])\
+		{\
+			maxValue = start[i];\
+			maxIndex = i;\
+		}\
+	return maxIndex;\
+}
+
+palg_find_max_def(u8, U8_MIN);
+palg_find_max_def(u16, U16_MIN);
+palg_find_max_def(u32, U32_MIN);
+palg_find_max_def(u64, U64_MIN);
+
+palg_find_max_def(s8, S8_MIN);
+palg_find_max_def(s16, S16_MIN);
+palg_find_max_def(s32, S32_MIN);
+palg_find_max_def(s64, S64_MIN);
+
+palg_find_max_def(f32, F32_MIN);
+palg_find_max_def(f64, F64_MIN);
+
+
+
+#define palg_find_min_def(type,  MAX) \
+palg_find_min_proto(type) \
+{ \
+	u32 n = CAST_TO(u32, end - start);\
+	type minValue = MAX;\
+	u32 minIndex = 0;\
+	for(u32 i = 0; i < n; i++)\
+		if(minValue > start[i])\
+		{\
+			minValue = start[i];\
+			minIndex = i;\
+		}\
+	return minIndex;\
+}
+
+palg_find_min_def(u8, U8_MAX);
+palg_find_min_def(u16, U16_MAX);
+palg_find_min_def(u32, U32_MAX);
+palg_find_min_def(u64, U64_MAX);
+
+palg_find_min_def(s8, S8_MAX);
+palg_find_min_def(s16, S16_MAX);
+palg_find_min_def(s32, S32_MAX);
+palg_find_min_def(s64, S64_MAX);
+
+palg_find_min_def(f32, F32_MAX);
+palg_find_min_def(f64, F64_MAX);

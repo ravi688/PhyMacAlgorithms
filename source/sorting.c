@@ -1,6 +1,7 @@
 
 #include <phymac_algorithms/sorting.h>
 #include <phymac_algorithms/common.h>
+#include <phymac_algorithms/debug.h>
 
 /* bubble sort */
 #define palg_bubble_sort_def(type) \
@@ -31,6 +32,9 @@ palg_bubble_sort_def(f64);
 #define palg_selection_sort_def(type) \
 palg_selection_sort_proto(type) \
 { \
+	s64 n = CAST_TO(s64, end - start);\
+	for(s64 i = 0; i < (n - 1); i++)\
+		palg_swap(type)(&start[i], &start[palg_find_min(type)(&start[i], end) + i]);\
 }
 
 palg_selection_sort_def(u8);
