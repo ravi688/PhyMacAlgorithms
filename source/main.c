@@ -6,25 +6,34 @@
 
 #include <string.h>
 
+#define N 10
+
+
 int main(int argc, char** argv)
 {
 	print("PhyMac Algorithms Repository!");
 
-	s32 array[10] = { -19999, 1, 4, 100, 3, 5, 6, 3, 2, 1 };
+	s32 array[N] = { -103, 7, 4, 100, -100, 5, 6, 100, 2, 1 };
 
 	print("Give Array: ");
-	palg_print_array_s32(array, array + 10);
+	palg_print_array_s32(array, array + N);
 
 	print("Buble Sort: ");
-	s32 copy[10]; 
-	memcpy(copy, array, sizeof(s32) * 10);
-	palg_bubble_sort_s32(copy, copy + 10);
-	palg_print_array_s32(copy, copy + 10);
+	s32 copy[N]; 
+	memcpy(copy, array, sizeof(s32) * N);
+	palg_bubble_sort_s32(copy, copy + N);
+	palg_print_array_s32(copy, copy + N);
 
 	print("Selection Sort: ");
-	memcpy(copy, array, sizeof(s32) * 10);
-	palg_selection_sort_s32(copy, copy + 10);
-	palg_print_array_s32(copy, copy + 10);
+	memcpy(copy, array, sizeof(s32) * N);
+	palg_selection_sort_s32(copy, copy + N);
+	palg_print_array_s32(copy, copy + N);
+
+	print("Quick Sort: ");
+	memcpy(copy, array, sizeof(s32) * N);
+	palg_quick_sort_s32(copy, copy + N);
+	palg_print_array_s32(copy, copy + N);
+
 
 	return 0;
 }

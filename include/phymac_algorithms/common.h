@@ -21,7 +21,7 @@ palg_print_array_proto(f64);
 
 /* swap */
 #define palg_swap(type) palg_swap_##type
-#define palg_swap_proto(type) PALG_API void palg_swap_##type(const type* const v1, const type* const v2)
+#define palg_swap_proto(type) PALG_API void palg_swap_##type(type* const v1, type* const v2)
 
 palg_swap_proto(u8);
 palg_swap_proto(u16);

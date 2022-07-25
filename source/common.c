@@ -80,10 +80,12 @@ palg_print_array_proto(f64)
 #define palg_swap_def(type) \
 palg_swap_proto(type) \
 {\
-	type value;\
-	memcpy(&value, (void*)v1, sizeof(type));\
-	memcpy((void*)v1, (void*)v2, sizeof(type));\
-	memcpy((void*)v2, &value, sizeof(type));\
+	type vcopy1;\
+	type vcopy2;\
+	memcpy(&vcopy1, v1, sizeof(type));\
+	memcpy(&vcopy2, v2, sizeof(type));\
+	memcpy(v1, &vcopy2, sizeof(type));\
+	memcpy(v2, &vcopy1, sizeof(type));\
 }
 
 palg_swap_def(u8);
