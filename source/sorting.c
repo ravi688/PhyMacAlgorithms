@@ -10,7 +10,7 @@ palg_bubble_sort_proto(type) \
 	u32 n = CAST_TO(u32, (end - start));\
 	for(u32 i = 0; i < n; i++)\
 	{\
-		u32 k = (n - i);\
+		u32 k = (n - i - 1);\
 		for(u32 j = 0; j < k; j++)\
 			if((start[j] > start[j + 1]))\
 				palg_swap(type)(&start[j], &start[j + 1]);\
