@@ -33,6 +33,20 @@ palg_selection_sort_proto(s64);
 palg_selection_sort_proto(f32);
 palg_selection_sort_proto(f64);
 
+/* insertion sort */
+#define palg_insertion_sort(type) palg_insertion_sort_##type
+#define palg_insertion_sort_proto(type) PALG_API void palg_insertion_sort(type)(type* const start, type* const  end)
+palg_insertion_sort_proto(u8);
+palg_insertion_sort_proto(u16);
+palg_insertion_sort_proto(u32);
+palg_insertion_sort_proto(u64);
+palg_insertion_sort_proto(s8);
+palg_insertion_sort_proto(s16);
+palg_insertion_sort_proto(s32);
+palg_insertion_sort_proto(s64);
+palg_insertion_sort_proto(f32);
+palg_insertion_sort_proto(f64);
+
 /* partition */
 #define palg_partition(type) palg_partition_##type
 #define palg_partition_proto(type) PALG_API u32 palg_partition(type)(type* const start, type* const end)

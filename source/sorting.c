@@ -50,6 +50,40 @@ palg_selection_sort_def(s64);
 palg_selection_sort_def(f32);
 palg_selection_sort_def(f64);
 
+/* insertion sort */
+#define palg_insertion_sort_def(type) \
+palg_insertion_sort_proto(type) \
+{ \
+	u32 n = CAST_TO(u32, end - start);\
+	for(u32 i = 1; i < n; i++)\
+	{\
+		if(start[i - 1] > start[i])\
+		{\
+			u32 j = i - 1;\
+			type temp = start[i];\
+			while((j >= 0) && (j != U32_MAX) && (start[j] > temp))\
+			{\
+				start[j + 1] = start[j];\
+				j--;\
+			}\
+			start[j + 1] = temp;\
+		}\
+	}\
+}
+
+palg_insertion_sort_def(u8);
+palg_insertion_sort_def(u16);
+palg_insertion_sort_def(u32);
+palg_insertion_sort_def(u64);
+palg_insertion_sort_def(s8);
+palg_insertion_sort_def(s16);
+palg_insertion_sort_def(s32);
+palg_insertion_sort_def(s64);
+palg_insertion_sort_def(f32);
+palg_insertion_sort_def(f64);
+
+
+/* partition */
 #define palg_partition_def(type) \
 palg_partition_proto(type) \
 { \

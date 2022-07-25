@@ -40,5 +40,10 @@ int main(int argc, char** argv)
 	palg_merge_sort_s32(copy, copy + N, aux);
 	palg_print_array_s32(copy, copy + N);
 
+	print("Insertion Sort: ");
+	memcpy(copy, array, sizeof(s32) * N);
+	palg_insertion_sort_s32(copy, copy + N);
+	palg_print_array_s32(copy, copy + N);
+
 	return 0;
 }
