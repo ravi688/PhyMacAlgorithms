@@ -63,7 +63,7 @@ palg_quick_sort_proto(f64);
 
 /* merge sort */
 #define palg_merge_sort(type) palg_merge_sort_##type
-#define palg_merge_sort_proto(type) PALG_API void palg_merge_sort_##type(type* const start, type* const end)
+#define palg_merge_sort_proto(type) PALG_API void palg_merge_sort_##type(type* const start, type* const end, void* aux)
 palg_merge_sort_proto(u8);
 palg_merge_sort_proto(u16);
 palg_merge_sort_proto(u32);

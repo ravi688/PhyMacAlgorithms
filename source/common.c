@@ -77,6 +77,23 @@ palg_print_array_proto(f64)
 	puts("");
 }
 
+#define palg_max_def(type)\
+palg_max_proto(type)\
+{\
+	return (v1 > v2) ? v1 : v2;\
+}
+
+palg_max_def(u8);
+palg_max_def(u16);
+palg_max_def(u32);
+palg_max_def(u64);
+palg_max_def(s8);
+palg_max_def(s16);
+palg_max_def(s32);
+palg_max_def(s64);
+palg_max_def(f32);
+palg_max_def(f64);
+
 #define palg_swap_def(type) \
 palg_swap_proto(type) \
 {\

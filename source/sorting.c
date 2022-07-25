@@ -104,6 +104,51 @@ palg_quick_sort_def(f64);
 #define palg_merge_sort_def(type) \
 palg_merge_sort_proto(type) \
 { \
+	u32 n = CAST_TO(u32, end - start);\
+	switch(n)\
+	{\
+		case 1:\
+		case 0:\
+			return;\
+		case 2:\
+			if(start[0] > start[1])\
+				palg_swap(type)(start, start + 1);\
+			return;\
+	}\
+	u32 index = n >> 1;\
+	palg_merge_sort(type)(start, start + index, aux);\
+	palg_merge_sort(type)(start + index, end, aux);\
+	u32 c1 = 0;\
+	u32 c2 = 0;\
+	u32 n1 = index;\
+	u32 n2 = n - index;\
+	for(u32 i = 0; i < n; i++)\
+	{\
+		if((c1 < n1) && (c2 < n2))\
+		{\
+			if(DREF(start + c1) < DREF(start + index + c2))\
+			{\
+				CAST_TO(type*, aux)[i] = DREF(start + c1);\
+				c1++;\
+			}\
+			else\
+			{\
+				CAST_TO(type*, aux)[i] = DREF(start + index + c2);\
+				c2++;\
+			}\
+		}\
+		else if((c1 < n1))\
+		{\
+			CAST_TO(type*, aux)[i] = DREF(start + c1);\
+			c1++;\
+		}\
+		else\
+		{\
+			CAST_TO(type*, aux)[i] = DREF(start + index + c2);\
+			c2++;\
+		}\
+	}\
+	memcpy(start, aux, sizeof(type) * n);\
 }
 
 palg_merge_sort_def(u8);
