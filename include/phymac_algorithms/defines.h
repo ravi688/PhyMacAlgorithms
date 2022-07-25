@@ -15,19 +15,31 @@ typedef int16_t s16;
 typedef int32_t s32;
 typedef int64_t s64;
 
-#define U8_MAX UINT8_MAX
-#define U16_MAX UINT16_MAX
-#define U32_MAX UINT32_MAX
-#define U64_MAX UINT64_MAX
+typedef float f32;
+typedef double f64;
 
-#define S8_MAX INT8_MAX
+#define U8_MIN 0
+#define U8_MAX UINT8_MAX
+#define U16_MIN 0
+#define U16_MAX UINT16_MAX
+#define U32_MIN 0
+#define U32_MAX UINT32_MAX
+#define U64_MIN 0
+#define U64_MAX UINT64_MAX
 #define S8_MIN INT8_MIN
-#define S16_MAX INT16_MAX
+#define S8_MAX INT8_MAX
 #define S16_MIN INT16_MIN
-#define S32_MAX INT32_MAX
+#define S16_MAX INT16_MAX
 #define S32_MIN INT32_MIN
-#define S64_MAX INT64_MAX
+#define S32_MAX INT32_MAX
 #define S64_MIN INT64_MIN
+#define S64_MAX INT64_MAX
+
+#include <float.h>
+#define F32_MIN FLT_MIN
+#define F32_MAX FLT_MAX
+#define F64_MIN DBL_MIN
+#define F64_MAX DBL_MAX
 
 #define DEPRECATED_FUNCTION __attribute__((deprecated))
 #define REMOVED_FUNCTION __attribute__((unavailable))
@@ -51,15 +63,23 @@ typedef int64_t s64;
 #define HOT HOT_FUNCTION
 #define COLD COLD_FUNCTION
 
-#ifdef PHYMAC_ALGORITHS_STATIC_LIBRARY
+#ifdef __cplusplus
+#	define RESTRICT __restrict__
+#else
+#	define RESTRICT restrict
+#endif
+
+#if defined(PHYMAC_ALGORITHS_STATIC_LIBRARY) || defined(PALG_STATIC_LIBRARY)
 #	define PHYMAC_ALGORITHS_API
-#elif PHYMAC_ALGORITHS_DYNAMIC_LIBRARY
+#elif defined(PHYMAC_ALGORITHS_DYNAMIC_LIBRARY) || defined(PAGL_DYNAMIC_LIBRARY)
 #	define PHYMAC_ALGORITHS_API __declspec(dllimport)
 #elif BUILD_DYNAMIC_LIBRARY
 #	define PHYMAC_ALGORITHS_API __declspec(dllexport)
 #else
 #	define PHYMAC_ALGORITHS_API
 #endif
+
+#define PALG_API PHYMAC_ALGORITHS_API
 
 #ifdef __cplusplus
 #	define BEGIN_CPP_COMPATIBLE extern "C" {
@@ -73,6 +93,9 @@ typedef int64_t s64;
 #define DREF(ptr) (*(ptr))
 #define CAST_TO(to, s) ((to)(s))
 #define REINTERPRET_TO(to, s) (*(to*)(&s))
+
+#define BIT64(index) (CAST_TO(u64, 1) << index)
+#define BIT32(index) (CAST_TO(u32, 1) << index)
 
 #define OUT * const
 #define IN const *
