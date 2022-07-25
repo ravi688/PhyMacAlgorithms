@@ -3,6 +3,8 @@
 #include <phymac_algorithms/common.h>
 #include <phymac_algorithms/debug.h>
 
+#include <memory.h> 	// for memcpy
+
 /* bubble sort */
 #define palg_bubble_sort_def(type) \
 palg_bubble_sort_proto(type) \
@@ -83,7 +85,7 @@ palg_quick_sort_proto(type) \
 { \
 	if(start >= end) return;\
 	u32 index = palg_partition(type)(start, end);\
-	palg_quick_sort(type)(start, start + index - 1);\
+	palg_quick_sort(type)(start, start + index);\
 	palg_quick_sort(type)(start + index + 1, end);\
 }
 
