@@ -45,5 +45,10 @@ int main(int argc, char** argv)
 	palg_insertion_sort_s32(copy, copy + N);
 	palg_print_array_s32(copy, copy + N);
 
+	print("Heap Sort: ");
+	memcpy(copy, array, sizeof(s32) * N);
+	palg_heap_sort_s32(copy, copy + N);
+	palg_print_array_s32(copy, copy + N);
+
 	return 0;
 }

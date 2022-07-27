@@ -89,6 +89,20 @@ palg_merge_sort_proto(s64);
 palg_merge_sort_proto(f32);
 palg_merge_sort_proto(f64);
 
+/* heap sort */
+#define palg_heap_sort(type) palg_heap_sort_##type
+#define palg_heap_sort_proto(type) PALG_API void palg_heap_sort_##type(type* const start, type* const end)
+palg_heap_sort_proto(u8);
+palg_heap_sort_proto(u16);
+palg_heap_sort_proto(u32);
+palg_heap_sort_proto(u64);
+palg_heap_sort_proto(s8);
+palg_heap_sort_proto(s16);
+palg_heap_sort_proto(s32);
+palg_heap_sort_proto(s64);
+palg_heap_sort_proto(f32);
+palg_heap_sort_proto(f64);
+
 /* optimized sort for particular cases */
 
 /* flags for the particular case optimizations */

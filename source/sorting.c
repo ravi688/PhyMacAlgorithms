@@ -196,6 +196,23 @@ palg_merge_sort_def(s64);
 palg_merge_sort_def(f32);
 palg_merge_sort_def(f64);
 
+/* heap sort */
+#define palg_heap_sort_def(type) \
+palg_heap_sort_proto(type) \
+{\
+}
+
+palg_heap_sort_def(u8);
+palg_heap_sort_def(u16);
+palg_heap_sort_def(u32);
+palg_heap_sort_def(u64);
+palg_heap_sort_def(s8);
+palg_heap_sort_def(s16);
+palg_heap_sort_def(s32);
+palg_heap_sort_def(s64);
+palg_heap_sort_def(f32);
+palg_heap_sort_def(f64);
+
 /* optimized sort for particular cases */
 
 #define palg_sort_def(type) \
